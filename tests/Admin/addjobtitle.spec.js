@@ -7,9 +7,11 @@ import { faker } from '@faker-js/faker';
 test('Verify Admin can add job title', async ({ page }) => {
   await page.goto('/web/index.php/auth/login');
 
-  await page.getByRole('textbox', { name: 'Username' }).fill(data.username);
+  await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME);
 
-  await page.getByRole('textbox', { name: 'Password' }).fill(data.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
+
+  await page.waitForTimeout(10000)
   await page.getByRole('button', { name: 'Login' }).click();
   await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
   await page.getByRole('link', { name: 'Admin' }).click({timeout: 50000});
