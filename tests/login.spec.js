@@ -8,7 +8,7 @@ test('Login with Valid credentials', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME, {timeout:50000});
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
-  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole("button", { name: 'Login' }).click();
   await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
 }); 
 

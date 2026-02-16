@@ -10,7 +10,7 @@ test('Verify Admin can create employment status', async ({ page }) => {
     await page.goto('/web/index.php/auth/login')
 
     // Enter Username 
-    await page.locator("input[name='username']").fill(process.env.APP_USERNAME)
+    await page.locator('input[name="username"]').fill(process.env.APP_USERNAME)
 
     // Enter Password 
 

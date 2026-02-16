@@ -42,7 +42,7 @@ export default defineConfig({
 
     baseURL : `https://opensource-demo.orangehrmlive.com`,
     headless : true,
-    //testIdAttribute:
+    testIdAttribute: "aria-label",
     trace: "on",
     screenshot : "on",
     video: "retain-on-failure",

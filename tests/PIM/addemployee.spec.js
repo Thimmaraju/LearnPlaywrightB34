@@ -26,12 +26,16 @@ test('Verify Admin can create Employee with Mandatory details', async ({ page })
   console.log("Last Name:", lastName);
   await page.goto('/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill(logindata.username);
+  await page.getByRole('textbox', { name: 'Username' }).fill("Admin");
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(logindata.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill("admin123");
   await page.getByRole('button', { name: 'Login' }).click();
   await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
-  await page.getByRole('link', { name: 'PIM' }).click();
+
+  //pIM 
+  await page.locator('(//a[@class="oxd-main-menu-item"])[2]').click();
+
+
   await page.getByRole('link', { name: 'Add Employee' }).click();
   await page.getByRole('textbox', { name: 'First Name' }).click();
   // await page.getByRole('textbox', { name: 'First Name' }).fill(addempdata.firstname);
