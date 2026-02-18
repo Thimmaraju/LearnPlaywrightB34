@@ -2,7 +2,11 @@ import { test, expect } from '@playwright/test';
 
 import data from "../testdata/login.json"
 
+let username 
+
 test('Login with Valid credentials', async ({ page }) => {
+
+  username = "Admin"
   await page.goto('/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click({timeout: 50000});
   await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME, {timeout:50000});
@@ -41,12 +45,16 @@ test('Login with Invalid username and valid password', async ({ page }) => {
 
 test('Login with Invalid username and Invalid password', async ({ page }) => {
 
+  let invalidusername = "nbdfrfhbhy"
+
+  let invalidpassword = "jwerfbf"
+
   // Launch the URL 
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   //Entering Username 
-  await page.getByRole('textbox', { name: 'Username' }).fill(data.wrongusername);
+  await page.getByRole('textbox', { name: 'Username' }).fill(invalidusername);
   //Entering Password 
-  await page.getByRole('textbox', { name: 'Password' }).fill(data.wrongpassword);
+  await page.getByRole('textbox', { name: 'Password' }).fill(invalidpassword);
   //click on login button 
   await page.getByRole('button', { name: 'Login' }).click();
   //Verify Validation Messege is visible 
