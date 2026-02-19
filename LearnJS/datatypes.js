@@ -77,3 +77,39 @@ console.log(typeof(y))
 // mutable  - non primitive datatypes are mutable 
 // Immutable - Primitive data types immutable 
 
+
+
+arr = [1,32,4,5,6]  //Java 
+
+arr[1] = "Raju"
+
+console.log(arr)
+
+// Mutable 
+
+str = "JavaScript"
+
+console.log(str.charAt(0))
+
+str[0] = "k"
+
+console.log(str)
+
+// Immutable 
+
+//JS Object 
+student = {
+
+   firstname: "Suchita",
+   lastname : "Kumar",
+   place: "USA "
+}
+
+student.firstname = "Naveeen"
+
+
+console.log(student)
+//===================================================
+
+
+
