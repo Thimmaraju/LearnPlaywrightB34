@@ -4,16 +4,43 @@ import data from "../testdata/login.json"
 
 let username 
 
+let credentials = {
+
+     username : "Admin",
+     password : "admin123"
+}
+
+
+
 test('Login with Valid credentials', async ({ page }) => {
 
+
+  
   username = "Admin"
   await page.goto('/web/index.php/auth/login');
-  await page.getByRole('textbox', { name: 'Username' }).click({timeout: 50000});
-  await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME, {timeout:50000});
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
+  await page.getByRole('textbox', { name: 'Username' }).fill(credentials.username, {timeout:50000});
+
+  await page.getByRole('textbox', { name: 'Password' }).fill(credentials.password);
   await page.getByRole("button", { name: 'Login' }).click();
-  await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
+
+  let menuitems = {
+
+    menu1 : "Admin",
+    menu2 : "PIM",
+    menu3 : "Leave",
+    menu4 : "Recruitment",
+    menu5 : "Dashboard"
+  }
+
+  for( let modulename in menuitems ){
+
+     await expect(page.getByText(menuitems[modulename])).toBeVisible();
+  }
+
+
+ // const ordernumber = await page.locator("xpath").textContent()
+
+ // details['ordernumber'] = "efhbvgh"
 }); 
 
 test('Login with Valid username and Invalid password', async ({ page }) => {

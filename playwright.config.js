@@ -19,9 +19,9 @@ export default defineConfig({
   // globalTimeout : 60*60*1000,
   // timeout: 45000,  // 30 sec 
 
-  // expect: {
-  //   timeout: 20000
-  // },  // all await expect() statements 
+  expect: {
+    timeout: 20000
+  },  // all await expect() statements 
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
