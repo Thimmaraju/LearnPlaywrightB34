@@ -113,3 +113,4 @@ console.log(student)
 
 
 
+printnames()
