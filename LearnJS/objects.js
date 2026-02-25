@@ -72,3 +72,43 @@ for(let item in menuitems){
 
        console.log("Loop ends here")
 }
+
+
+const emstatuses = {
+
+    empstatus1 : "Part time Morning Shift",
+    empstatus2 : "Part time Second Shift",
+    empstatus3 : "Part time Night Shift",
+
+}
+
+
+for(let status  in emstatuses){
+
+    console.log("Loop starts here")
+
+    console.log(emstatuses[status])
+
+       console.log("Loop ends here")
+}
+
+
+const employees = {
+
+    emp1 : { firstname : "Netra", lastname : "L"},
+
+    emp2: { firstname : "Naveen", lastname : "B"},
+
+    emp3: { firstname : "Madhukar", lastname : "abc"},
+
+
+
+}
+
+
+for (emp in employees){
+
+    console.log(employees[emp].firstname)
+
+    console.log(employees[emp].lastname)
+}

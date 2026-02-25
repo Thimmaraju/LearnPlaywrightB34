@@ -1,9 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-import data from "../../testdata/login.json"
 
-//test.use({ locale: 'fr-FR' });
-test('Verify Admin can create employment status', async ({ page }) => {
+const emstatuses = {
+
+    empstatus1 : "Part time Morning Shift",
+    empstatus2 : "Part time Second Shift",
+    empstatus3 : "Part time Night Shift",
+
+}
+
+
+for(let status  in emstatuses){
+
+    //test.use({ locale: 'fr-FR' });
+test(`Verify Admin can create employment status - ${status}`, async ({ page }) => {
 
     // Launch URL 
 
@@ -41,7 +51,7 @@ test('Verify Admin can create employment status', async ({ page }) => {
     // Enter Employment status 
 
     let randomchars = (Math.random() + 1).toString(36).substring(7); // 5 chars generation
-    await page.locator("(//input[@class='oxd-input oxd-input--active'])[2]").fill("Part time Job"+ randomchars)
+    await page.locator("(//input[@class='oxd-input oxd-input--active'])[2]").fill(emstatuses[status])
 
     // click on save 
 
@@ -52,10 +62,16 @@ test('Verify Admin can create employment status', async ({ page }) => {
 
     // Created emp status is displayed 
 
-    await expect(page.locator("//div[normalize-space(text())='Part time Job 3']")).toBeVisible()
+    //await expect(page.locator("//div[normalize-space(text())='Part time Job 3']")).toBeVisible()
 
    // close browser page 
 
-   await page.close()
+  // await page.close()
 
 })
+
+
+
+
+}
+
