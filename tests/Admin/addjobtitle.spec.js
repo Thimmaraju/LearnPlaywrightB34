@@ -4,12 +4,14 @@ import data from "../../testdata/login.json"
 
 import { faker } from '@faker-js/faker';
 
+const credentials = ["Admin", 'admin123']
+
 test('Verify Admin can add job title', async ({ page }) => {
   await page.goto('/web/index.php/auth/login');
 
-  await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME);
+  await page.getByRole('textbox', { name: 'Username' }).fill(credentials[0]);
 
-  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
+  await page.getByRole('textbox', { name: 'Password' }).fill(credentials[1]);
 
   await page.waitForTimeout(10000)
   await page.getByRole('button', { name: 'Login' }).click();
