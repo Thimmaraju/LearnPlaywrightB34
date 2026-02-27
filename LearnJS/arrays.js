@@ -109,3 +109,67 @@
 arr = [ 'read', 'work', 'exercise', 'eat', 'sleep' ]
 
 //console.log(arr.includes("raju"))  //true
+
+//map 
+
+arr = [1,2,3,4,5]
+
+arr1 = arr.map(x => x/2 )
+
+console.log(arr1)
+
+arr2  = ["Raju", "Rajesh", "Naveen", "suchita"]
+
+arr3 = arr2.map( element => element+"blr")
+
+console.log(arr3)
+
+//filter 
+
+arr = [2,4,5,6,7,8,9,23,35]
+
+evennumbers  = arr.filter( element => element%2 != 0)
+
+console.log(evennumbers)
+
+arr2  = ["Raju", "Rajesh", "Naveen", "suchita"]   //
+
+arr5 = arr2.filter(element => element.includes("Raj"))
+
+console.log(arr5)
+
+
+// arr2  = ["Raju", "Rajesh", "Naveen", "suchita"] 
+
+// arr2.forEach(element => {
+
+//     console.log("Loop starts ")
+
+//     console.log(element)
+
+//    console.log("Loop Ends ")
+    
+// });
+
+
+names  = ["Raju", "Rajesh", "Naveen", "suchita"] 
+
+for(let element of names ){
+
+       console.log("Loop starts ")
+
+    console.log(element)
+
+   console.log("Loop Ends ")
+}
+
+// for of 
+
+
+// .forEach(element => {
+    
+// });
+
+// map 
+
+// filter 
