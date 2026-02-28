@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 
 
 n1 = 5 
@@ -25,8 +27,76 @@ x = 34 -"Raju"  //NaN
 console.log(isNaN(x))
 
 
-y = string(20)
+y = String(20)
 
 //y = 20.toString()  // string 
 
-//Math.
+
+
+maxnum = Math.max(2,4,5,67,98,234,3,45,6,8,97,43)
+
+console.log(maxnum)
+
+minnum  = Math.min(2,4,5,67,98,234,3,45,6,8,97,43)
+
+console.log(minnum)
+
+// x = 45.67
+
+// y = Math.trunc(x)
+
+// console.log(y)
+
+// x = 6.8
+
+// y = Math.round(x)
+
+// console.log(y)
+
+// ========================
+
+num1 = 6.9
+
+result = Math.floor(num1)
+
+console.log(result)
+
+
+num1 = 6.1
+
+result = Math.ceil(num1)
+
+console.log(result)
+
+
+z = Math.pow(2,6)
+
+console.log(z)
+
+//2**6
+
+randomnum = Math.random()  //0 to 1 
+
+console.log(randomnum)
+
+
+console.log(Math.PI)
+
+console.log(Math.sqrt(81))
+
+//==========================================
+
+
+x = moment().format('MMMM Do YYYY, h:mm:ss a')
+
+console.log(x)
+
+// date = moment().format('L')
+
+// console.log(date)
+
+
+const date = moment().format('YYYY/MM/DD');
+console.log(date);
+
+//fill(moment().format('YYYY/MM/DD'))
