@@ -8,8 +8,8 @@ test("Based on BrowserName run different script", async ({ page, browserName}) =
     switch (browserName) {
         case "chromium":
 
-            await page.goto("https://www.flipkart.com/");
-            await page.close()
+            await  page.goto("https://www.flipkart.com/")
+            await page.close().then
 
             break;
 

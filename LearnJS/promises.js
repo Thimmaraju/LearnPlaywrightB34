@@ -154,19 +154,29 @@ const p1 = Promise.resolve('Like If you understood callbacks');
 //const p2 = Promise.reject('Rejected');
 const p3 = 100;
 const p4 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 10000, 'Subscribe for more updates');
+    setTimeout(resolve, 4000, 'Subscribe for more updates');
 });
 
 const p5 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 5000, 'Subscribe for less updates');
+    setTimeout(resolve, 2000, 'Subscribe for less updates');
 });
 
 
 
 //to loop the promise 
-Promise.all([p1, p3, p4, p5]).then((values) => console.log(values)); // resolved values 
-Promise.allSettled([p1, p2, p3, p4, p5]).then((values) => console.log(values)); // resolved and rejected both
+//Promise.all([p1, p2, p4, p5]).then((values) => console.log(values))
+                              //.catch(value => console.log(value)); // resolved values 
+//Promise.allSettled([p1, p2, p3, p4, p5]).then((values) => console.log(values)); // resolved and rejected both
 
 
-Promise.race([p4, p5]).then((value) => console.log(value)); // whichever first resolved value 
-Promise.any([p4, p5]).then((value) => console.log(value));
+ Promise.race([p4, p5]).then((value) => console.log(value)); // whichever first resolved value 
+ Promise.any([p4, p5]).then((value) => console.log(value));
+
+
+
+//  [newTab] = Promise.all([
+
+//       page.goto("xyz")
+//       page.click(element)
+//       page.waitforEvent("Page")
+//  ])
