@@ -59,6 +59,8 @@ test('Verify Admin can create Employee with Mandatory details', async ({ page })
   await page.getByRole('textbox', { name: 'Last Name' }).click();
   await page.getByRole('textbox', { name: 'Last Name' }).fill(lastName);
 
+  
+
 
   await page.waitForTimeout(6000)
   await page.getByRole('button', { name: 'Save' }).click();

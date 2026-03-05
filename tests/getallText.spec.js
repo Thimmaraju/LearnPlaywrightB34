@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test("Get All text contents", async ({ page}) => {
+test("Get All text contents", {tag: "@smoke"},  async ({ page}) => {
 
 
     

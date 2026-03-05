@@ -18,7 +18,7 @@ test.describe("Login functionality", ()=> {
 
   }) 
 
-  test('Login with Valid credentials', async ({ page }) => {
+  test('Login with Valid credentials', {tag : "@smoke"}, async ({ page }) => {
 
    
     await page.getByRole('textbox', { name: 'Username' }).fill(credentials.username, { timeout: 50000 });
