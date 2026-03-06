@@ -1,94 +1,38 @@
 import { test, expect } from '@playwright/test';
-
+import { loginPage } from "..//pages/loginpage.po"
 import data from "../testdata/login.json"
 
-// let username
+test.describe("Verify Login", () => {
 
-// let credentials = {
+    let login
 
-//   username: "Admin",
-//   password: "admin123"
-// }
+    test.beforeEach( async ({page}) =>{
+        
+        login = new loginPage(page)
+        await login.launchUrl()
+        await login.verifyLogo()
 
+    })
 
-test.describe("Login functionality", ()=> {
+    test("verify login with valid creds", async () => {
+         await login.loginwithCreds(process.env.APP_USERNAME, process.env.APP_PASSWORD)
+         await login.loginSuccess()
+    })
 
-  test.beforeEach( async ({page}) => {
-    await page.goto('/web/index.php/auth/login');
+    test("verify login invlid user and valid password", async () => {
 
-  }) 
+         await login.loginwithCreds(data.wrongusername, process.env.APP_PASSWORD)
+         await login.loginfailure()
+    })
 
-  test('Login with Valid credentials', {tag : "@smoke"}, async ({ page }) => {
+    test("verify login valid user and invalid password", async () => {
 
-   
-    await page.getByRole('textbox', { name: 'Username' }).fill(credentials.username, { timeout: 50000 });
+         await login.loginwithCreds(process.env.APP_USERNAME, data.wrongpassword)
+         await login.loginfailure()
+    })
 
-    await page.getByRole('textbox', { name: 'Password' }).fill(credentials.password);
-    await page.getByRole("button", { name: 'Login' }).click();
-
-    // let menuitems = {
-
-    //   menu1: "Admin",
-    //   menu2: "PIM",
-    //   menu3: "Leave",
-    //   menu4: "Recruitment",
-    //   menu5: "Dashboard"
-    // }
-
-    // for (let modulename in menuitems) {
-
-    //   await expect(page.getByText(menuitems[modulename])).toBeVisible();
-    // }
-
-
-    // const ordernumber = await page.locator("xpath").textContent()
-
-    // details['ordernumber'] = "efhbvgh"
-  });
-
-  test('Login with Valid username and Invalid password', async ({ page }) => {
-
-    await page.getByRole('textbox', { name: 'Username' }).click();
-    await page.getByRole('textbox', { name: 'Username' }).fill("Admin");
-    await page.getByRole('textbox', { name: 'Password' }).click();
-    await page.getByRole('textbox', { name: 'Password' }).fill("data.wrongpassword");
-    await page.getByRole('button', { name: 'Login' }).click();
-    await expect(page.getByText('Invalid credentials')).toBeVisible();
-  });
-
-
-  test('Login with Invalid username and valid password', async ({ page }) => {
-
-    //Entering Username 
-    await page.getByRole('textbox', { name: 'Username' }).fill("data.wrongusername");
-    //Entering Password 
-    await page.getByRole('textbox', { name: 'Password' }).fill("admin123");
-    //click on login button 
-    await page.getByRole('button', { name: 'Login' }).click();
-    //Verify Validation Messege is visible 
-    await expect(page.getByText('Invalid credentials')).toBeVisible();
-  });
-
-
-
-  test('Login with Invalid username and Invalid password', async ({ page }) => {
-     
-    test.slow() // 135 sec 
-    let invalidusername = "nbdfrfhbhy"
-
-    let invalidpassword = "jwerfbf"
-
-    //Entering Username 
-    await page.getByRole('textbox', { name: 'bvnf' }).fill(invalidusername);
-    //Entering Password 
-    await page.getByRole('textbox', { name: 'Password' }).fill(invalidpassword);
-    //click on login button 
-    await page.getByRole('button', { name: 'Login' }).click();
-    //Verify Validation Messege is visible 
-    await expect(page.getByText('Invalid credentials')).toBeVisible();
-  });
-
-
+    test("verify login INvalid user and invalid password", async () => {
+         await login.loginwithCreds(data.wrongusername, data.wrongpassword)
+         await login.loginfailure()
+    })
 })
-
-

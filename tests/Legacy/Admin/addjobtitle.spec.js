@@ -1,6 +1,4 @@
-import { test, expect } from '@playwright/test';
-
-import data from "../../testdata/login.json"
+import { test, expect } from '@playwright/test'
 
 import { faker } from '@faker-js/faker';
 
