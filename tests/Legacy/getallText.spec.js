@@ -8,7 +8,7 @@ test("Get All text contents", {tag: "@smoke"},  async ({ page}) => {
         await page.goto('/web/index.php/auth/login')
     
         // Enter Username 
-        await page.locator('input[name="username"]').fill(process.env.APP_USERNAME)
+        await page.locator('input[name="username"]').pressSequentially("Admin", {delay : 3000})
     
         // Enter Password 
     
