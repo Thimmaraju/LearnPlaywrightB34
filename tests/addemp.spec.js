@@ -22,7 +22,6 @@ import data from "../testdata/PIM/addemployee.json"
     })
 
     test("verify User can create Employee", async () => {
-       console.log(x)
 
         test.slow()
         let randomchars = (Math.random() + 1).toString(36).substring(7);
