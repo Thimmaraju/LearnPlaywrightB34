@@ -4,7 +4,7 @@ test('scroll to specific element', async ({ page }) => {
 
     await page.goto("https://www.imdb.com/chart/top/");
 
-     await page.locator("//h3[text()='The Incredibles']").scrollIntoViewIfNeeded()
+     //await page.locator("//h3[text()='The Incredibles']").scrollIntoViewIfNeeded()
 
      await page.waitForTimeout(5000)
 

@@ -4,6 +4,7 @@ test.describe('Automation - Working With Elements', () => {
     test('Working with Iframes',{tag : [ "@smoke", "@raju"]}, async ({ page }) => {
 
         await page.goto('https://jqueryui.com/checkboxradio/')
+        
         await page.frameLocator('//iframe[@class="demo-frame"]').locator('label[for="checkbox-1"]').click()
 
         //await checkbox.click()

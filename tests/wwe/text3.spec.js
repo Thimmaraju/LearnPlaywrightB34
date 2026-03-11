@@ -35,12 +35,12 @@ test.describe('Text2 Suite', () => {
 
         const allproductNames = await page.locator('//h4[@class="product-name"]').allInnerTexts()
 
-        //console.log(allproductNames)
+        console.log(allproductNames)
 
-        for(let vegitable of allproductNames ){
+        // for(let vegitable of allproductNames ){
 
-            console.log(vegitable)
-        }
+        //     console.log(vegitable)
+        // }
 
         
     })

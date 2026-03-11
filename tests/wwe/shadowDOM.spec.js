@@ -16,7 +16,7 @@ test('Working with Shadow DOM2', async ({ page }) => {
 
     //await page.locator('#input').press("Enter")
 
-    await page.keyboard.press('Enter')
+    await page.keyboard.press("Enter")
 
      //await expect(page.locator('text=Science and Method')).toBeVisible()
 

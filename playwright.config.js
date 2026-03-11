@@ -44,7 +44,7 @@ export default defineConfig({
     headless : true,
     testIdAttribute: "aria-label",
     trace: "on",
-    screenshot : "on",
+    screenshot : 'on',
     video: "retain-on-failure",
 
   },

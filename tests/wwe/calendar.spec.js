@@ -32,4 +32,12 @@ test.describe('Calendar Feature', () => {
 
         await page.frameLocator('#parent_iframe').frameLocator('#iframe1').locator('#u_5_6').click()
     })
+
+    test("Input calendar", async ({page}) =>{
+
+
+        await page.goto('https://www.globalsqa.com/demo-site/datepicker/')
+
+        await page.frameLocator('(//iframe[@class="demo-frame"])[1]').locator('#datepicker').first().fill('12/12/2024')
+    })
 });
