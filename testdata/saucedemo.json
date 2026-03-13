@@ -1,0 +1,20 @@
+{
+  "credentials": {
+    "standard_user": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  "products": {
+    "expected_count": 6,
+    "names": [
+      "Sauce Labs Backpack",
+      "Sauce Labs Bike Light",
+      "Sauce Labs Bolt T-Shirt",
+      "Sauce Labs Fleece Jacket",
+      "Sauce Labs Onesie",
+      "Test.allTheThings() T-Shirt (Red)"
+    ]
+  },
+  "expectedPrice": "$29.99"
+}
