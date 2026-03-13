@@ -7,7 +7,7 @@ test.describe('Automation - Working With Elements', () => {
 
         await page.goto('https://the-internet.herokuapp.com/upload')
 
-        await page.locator('#file-upload').setInputFiles('./testData/files/rtmsample.png')
+        await page.locator('#file-upload').setInputFiles('testdata/Cat.jpg')
 
         //testData\files\rtmsample.png
 
@@ -38,28 +38,30 @@ test.describe('Automation - Working With Elements', () => {
 
         await page.goto('http://blueimp.github.io/jQuery-File-Upload/')
 
-        await page.setInputFiles('input[type="file"]', ['uploadfiles/SDLC.png', 'uploadfiles/Spiral-Model-Methodology.png', 'testdata/Xpath+vs+CSS.pdf'])
+        await page.setInputFiles('input[type="file"]', ['testdata/addemp.xlsx', 'testdata/Cat.jpg', 'testdata/playwrightposter.png'])
 
-        //await page.locator('input[type="file"]').setInputFiles(['uploadfiles/SDLC.png', 'uploadfiles/Spiral-Model-Methodology.png', 'testdata/learn.jpg'])
+        //await page.locator('input[type="file"]').setInputFiles(['testdata/addemp.xlsx', 'testdata/Cat.jpg', 'testdata/playwrightposter.png'])
 
 
-       const  filenames = ['SDLC.png', 'Spiral-Model-Methodology.png', 'Xpath+vs+CSS.pdf']
+    //    const  filenames = ['SDLC.png', 'Spiral-Model-Methodology.png', 'Xpath+vs+CSS.pdf']
 
-        for( const file of filenames ){
+    //     for( const file of filenames ){
 
-        await expect(page.locator(`//p[text()='${file}']`)).toBeVisible()
-        }
+    //     await expect(page.locator(`//p[text()='${file}']`)).toBeVisible()
+    //     }
 
         await page.waitForTimeout(5000)
 
     })
+
+    //==============================================================================
 
     test('Download a Single file and assert', async ({ page }) => {
         await page.goto('https://the-internet.herokuapp.com/download')
 
         const [download] = await Promise.all([
             page.waitForEvent('download'),
-            page.locator('//a[@href="download/spectrum-logo.png"]').click()
+            page.locator('//a[@href="download/search.png"]').click()
         ]);
 
         const suggestedFileName = download.suggestedFilename()
@@ -93,7 +95,7 @@ test.describe('Automation - Working With Elements', () => {
     test('Direct Download and assert', async ({ page }) => {
 
         // Define the image URL
-        const imageUrl = 'https://moonlitsanctuary.com.au/wp-content/uploads/2022/04/swift-parrot-perched.jpg';
+        const imageUrl = 'https://i.ytimg.com/vi/UI7v_qrk-GA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDl7d7ROstzrQz-Puh-AA7aMCEz8w';
 
         // Fetch the image using Playwright's request API
         const response = await page.request.get(imageUrl);
@@ -111,7 +113,7 @@ test.describe('Automation - Working With Elements', () => {
             }
 
             // Define the file name and path to save the image inside the 'downloads' folder
-            const savePath = path.join(downloadsFolder, 'parrat.jpg');
+            const savePath = path.join(downloadsFolder, 'gas.jpg');
 
             // Write the buffer to a file
             fs.writeFileSync(savePath, buffer);

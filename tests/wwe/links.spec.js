@@ -17,6 +17,13 @@ test.describe('Automation - Working With Links', () => {
     await expect(page.locator("//button[text()=' Reset Password ']")).toBeVisible()
 
   })
+
+  test("Trello link ", async ( {page}) =>{
+
+    await page.goto('https://trello.com/')
+    await page.click("(//a[text()='Log in'])[1]")
+    await page.fill('input[id="username-uid1"]', "rajutester2673@gmail.com")
+  })
 })
 
 // nth(0)

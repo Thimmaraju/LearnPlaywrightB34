@@ -51,12 +51,25 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+
+     {
+      name: "setup",
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome'
+      },
+      testMatch: /.*\.setup\.js/,
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
        
         //viewport: { width: 375, height: 812 },
+         storageState: ".auth/user.json",
+
       },
+      dependencies: ["setup"],
+
     },
 
     {
@@ -86,7 +99,11 @@ export default defineConfig({
     // },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      use: { ...devices['Desktop Chrome'], channel: 'chrome',
+          storageState: ".auth/user.json",
+       },
+
+       dependencies: ["setup"],
     },
   ],
 
